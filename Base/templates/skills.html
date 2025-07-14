@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<section id="skills" class="section" data-aos="fade-up">
+  <div class="section-content">
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-grid">
+      {% for skill in skills %}
+        <div class="skill-item">
+          <div class="skill-name">{{ skill.name }}</div>
+          <div class="skill-bar">
+            <div class="skill-fill" style="width: {{ skill.percentage }}%; background-color: {{ skill.color }};"></div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

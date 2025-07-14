@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<section id="about" class="section" data-aos="fade-up">
+  <div class="section-content">
+    {% for about in about_list %}
+      <div class="about-block">
+        <div class="about-text">
+          <h2>{{ about.title }}</h2>
+          <p>{{ about.description }}</p>
+        </div>
+        {% if about.image %}
+          <div class="about-image">
+            <img src="{{ about.image.url }}" alt="{{ about.title }}">
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

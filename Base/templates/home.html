@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Главная - Kamron{% endblock %}
+{% block content %}
+<section class="hero-section">
+  <div class="container hero-grid">
+    <div class="hero-left">
+      <h1>{{ home.title }}</h1>
+      <p class="subtitle">{{ home.subtitle }}</p>
+      <p class="description">{{ home.description }}</p>
+    </div>
+    {% if home.image %}
+    <div class="hero-right">
+      <img src="{{ home.image.url }}" alt="Камрон Маткаримов" class="hero-img">
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<section class="about-skills">
+  <div class="container dual-grid">
+    <div class="about-block">
+      {% for about in about_list %}
+        <h2>{{ about.title }}</h2>
+        <p>{{ about.description }}</p>
+      {% endfor %}
+    </div>
+    <div class="skills-block">
+      <h3>Навыки</h3> 
+      {% for skill in skills %}
+        <div class="skill-item">
+          <div class="skill-name">{{ skill.name }}</div>
+          <div class="skill-bar">
+            <div class="skill-fill" style="width: {{ skill.percentage }}%; background-color: {{ skill.color }}"></div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
